@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style_six.css" rel="stylesheet">
+    <title>Задание 6</title>
+</head>
+<html>
+    <body>
+        <div class="content-block__main">
+            <h2>Как вас зовут?</h2>
+            <input id="first_name" type="text" />
+            <button id="say" class="content-block__button">ок</button>
+
+            <hr>
+            <h1 id="name"></h1>
+            <p>Предлогаем вам ознакомиться с функциями сайта и пройти небольшое тестирование</p>
+        </div>
+        <div class="content-block__tabs">
+            <input type="radio" name="tabs" id="tabone" checked="checked">
+            <label for="tabone">Площадь треугольника</label>
+            <div class="content-block__tab">
+                <h1>Введите основание и высоту треугольника</h1>
+                <p><input type="number" id="side1"/>
+                    <input type="number" id="side2"/>
+                    <button class="content-block__button" onclick="area()">Расчитать</button>
+                <p id = "output">Результат</p>
+                </p>
+            </div>
+
+            <input type="radio" name="tabs" id="tabtwo">
+            <label for="tabtwo">Сравнение строк</label>
+            <div class="content-block__tab">
+                <h1>Сравните строки</h1>
+                <p>
+                    <input type="text" id="str1">
+                    <input type="text" id="str2">
+                    <button class="content-block__button" id="compare">Сравнить</button>
+                </p>
+            </div>
+
+            <input type="radio" name="tabs" id="tabthree">
+            <label for="tabthree">Значение массива</label>
+            <div class="content-block__tab">
+                <h1>Узнать минимальное и максимальное значение массива</h1>
+                <p><input type="number" id="mas1">
+                    <input type="number" id="mas2">
+                    <input type="number" id="mas3">
+                    <input type="number" id="mas4">
+                    <input type="number" id="mas5">
+                    <button class="content-block__button" id="minMax">Найти</button>
+                </p>
+            </div>
+        </div>
+
+        <div class="content-block__quiz-container" id="quiz">
+            <div class="content-block__quiz-header">
+                <h2 id="question">Тест на знания Js</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="a" class="answer" />
+                        <label for="a" id="a_text">Вопрос_1</label>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="answer" id="b" class="answer" />
+                        <label for="b" id="b_text">Вопрос_2</label>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="answer" id="c" class="answer" />
+                        <label for="c" id="c_text">Вопрос_3</label>
+                    </li>
+
+                    <li>
+                        <input type="radio" name="answer" id="d" class="answer" />
+                        <label for="d" id="d_text">Вопрос_4</label>
+                    </li>
+                </ul>
+            </div>
+            <button class="content-block__quiz-button" id="submit">Отправить</button>
+        </div>
+
+        <button class="content-block__time-btn">Какой сейчас год?</button>
+
+        <div class="content-block__time-wrapper">
+            <div class="content-block__time-content">
+                <div class="content-block__time-details">
+                    <div class="content-block__time-container">
+                        <div class="content-block__time-date">
+                            <span id="day">day</span>,
+                            <span id="daynum">00</span>
+                            <span id="month">month</span>
+                            <span id="year">0000</span>
+                        </div>
+                        <div class="display-time"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+
+//задание 0
+function say_hi() {
+    let fname = document.getElementById('first_name').value;
+ 
+    let html = 'Привет <b>' + fname + '</b> ';
+ 
+    document.getElementById('name').innerHTML = html;
+}
+ 
+document.getElementById('say').addEventListener('click', say_hi);
+
+//Задание 1
+function area() {
+    let sideA = +document.getElementById("side1").value,
+    sideB = +document.getElementById("side2").value,
+    p = sideA * sideB / 2;
+  document.getElementById("output").innerHTML = p;
+}
+
+//Задание 2
+function comp() {
+    let first = document.getElementById('str1').value;
+    let second = document.getElementById('str2').value;
+    alert(first === second)
+}
+document.getElementById("compare").addEventListener('click', comp);
+
+//Задание 3
+function search() {
+    let mass1 = document.getElementById('mas1').value;
+    let mass2 = document.getElementById('mas2').value;
+    let mass3 = document.getElementById('mas3').value;
+    let mass4 = document.getElementById('mas4').value;
+    let mass5 = document.getElementById('mas5').value;
+    alert ('Минимальное значение массива: ' + Math.min.apply(null, [mass1,mass2,mass3,mass4,mass5]))
+    alert ('Максимальное значение массива: ' + Math.max.apply(null, [mass1,mass2,mass3,mass4,mass5]))
+}
+    document.getElementById('minMax').addEventListener('click', search)
+
+//Задание 5
+const quizData = [
+    {
+        question: 'Где верно указан запуск всплывающего окна?',
+        a: 'alert ("Hi")',
+        b: 'new alert ("Hi")',
+        c: 'Нет верных вариантов',
+        d: 'info ("Hi")',
+        correct: 'a',
+    },
+    {
+        question: 'В чем отличие между локальной и глобальной переменной?',
+        a: 'Локальные можно переопределять, глобальные нельзя',
+        b: 'Глобальные можно переопределять, локальные нельзя',
+        c: 'Глобальные видны повсюду, локальные только в функциях',
+        d: 'Локальные видны повсюду, глобальные только в функциях',
+        correct: 'c',
+    },
+    {
+        question: "Какая переменная записана неверно?",
+        a: 'var b = false;',
+        b: 'var number = 12,5;',
+        c: 'var isDone = 0;',
+        d: 'var num = "STRING";',
+        correct: 'b',
+    },
+    {
+        question: 'В чем разница между confirm и prompt?',
+        a: 'prompt вызывает диалоговое окно с полем для ввода, confirm - окно с подтверждением',
+        b: 'Они ничем не отличаются',
+        c: 'confirm вызывает диалоговое окно с полем для ввода, prompt - окно с подтверждением',
+        d: 'prompt вызывает диалоговое окно с полем для ввода, prompt - окно с подтверждением',
+        correct: 'a',
+    },
+    {
+        question: 'Где верно указано имя переменной?',
+        a: 'var num-1;',
+        b: 'ver num;',
+        c: 'var 2num;',
+        d: 'var num_1;',
+        correct: 'd',
+    },
+    {
+        question: 'Где можно использовать JavaScript?',
+        a: 'Прикладное программное обеспечение',
+        b: 'Серверные приложения',
+        c: 'Можно во всех перечисленных',
+        d: 'Веб-приложения',
+        correct: 'c',
+    },
+    {
+        question: 'Сколько параметров можно передать функции ?',
+        a: 'Ровно столько, сколько указано в определении функции.',
+        b: 'Сколько указано в определении функции или меньше',
+        c: 'Сколько указано в определении функции или больше',
+        d: 'Любое количество',
+        correct: 'd',
+    },
+    {
+        question: 'Есть ли разница между вызовами i++ и ++i?',
+        a: 'Разница в значении, которое возвращает такой вызов',
+        b: 'Разница в значении i после вызова',
+        c: 'Разница в значении i до вызова',
+        d: 'Нет никакой разницы',
+        correct: 'a',
+    },
+    {
+        question: 'Чему равно 2 && 1 && null && 0 && undefined ?',
+        a: '2',
+        b: '1',
+        c: 'null',
+        d: 'false',
+        correct: 'd',
+    },
+    {
+        question: 'Какие вызовы parseInt возвратят число?',
+        a: 'parseInt("1px")',
+        b: 'parseInt("-1.2")',
+        c: 'parseInt("0 минут")',
+        d: 'parseInt("$1.2")',
+        correct: 'd',
+    },
+];
+
+const quiz = document.getElementById('quiz'),
+    answerEls = document.querySelectorAll('.answer'),
+    questionEl = document.getElementById('question'),
+    a_text = document.getElementById('a_text'),
+    b_text = document.getElementById('b_text'),
+    c_text = document.getElementById('c_text'),
+    d_text = document.getElementById('d_text'),
+    submitBtn = document.getElementById('submit');
+
+let currentQuiz = 0,
+    score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+    deselectAnswers();
+
+    const currentQuizData = quizData[currentQuiz];
+
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+}
+
+function deselectAnswers() {
+    answerEls.forEach((answerEl) => (answerEl.checked = false));
+}
+
+function getSelected() {
+    let answer;
+
+    answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
+            answer = answerEl.id;
+        }
+    });
+
+    return answer;
+}
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected();
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+        }
+
+        currentQuiz++;
+
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+        } else {
+            quiz.innerHTML = `<h2>Вы ответили на ${score} из ${quizData.length} вопросов</h2> <button class="content-block__quiz-button" onclick="location.reload()">Попробовать ещё раз :(</button>`;
+        }
+    }
+});
+
+
+// 6 Задание и Модальное окно
+const button = document.querySelector(".content-block__time-btn");
+const popup = document.querySelector(".content-block__time-wrapper");
+
+button.addEventListener("click", () => {
+    popup.style.display = "block";
+});
+
+popup.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+// Дата и время
+const displayTime = document.querySelector(".display-time");
+function showTime() {
+    let time = new Date();
+    displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+    setTimeout(showTime, 1000);
+}
+showTime();
+
+function updateDate() {
+    let today = new Date();
+    let dayName = today.getDay(),
+        dayNum = today.getDate(),
+        month = today.getMonth(),
+        year = today.getFullYear();
+
+    const months = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+    ];
+    const dayWeek = [
+        "Воскресенье",
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница",
+        "Суббота",
+    ];
+    const IDCollection = ["day", "daynum", "month", "year"];
+    const val = [dayWeek[dayName], dayNum, months[month], year];
+    for (let i = 0; i < IDCollection.length; i++) {
+        document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+    }
+}
+
+updateDate();
+</script>

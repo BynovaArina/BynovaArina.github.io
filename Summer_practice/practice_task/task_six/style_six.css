@@ -1,0 +1,243 @@
+body {
+    background: #eee;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 10vh;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 60rem;
+    margin: 0 auto;
+    font-size: 112%;
+}
+.content-block__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-block__tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.content-block__tabs label {
+    order: 1;
+    display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+    background: #8e44ad;
+    font-weight: bold;
+    transition: background ease 0.2s;
+    color: #fff;
+}
+.content-block__tabs .content-block__tab {
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 1rem;
+    background: #fff;
+}
+.content-block__tabs input[type="radio"] {
+    display: none;
+}
+.content-block__tabs input[type="radio"]:checked + label {
+    background: #fff;
+    color: #000;
+}
+.content-block__tabs input[type="radio"]:checked + label + .content-block__tab {
+    display: block;
+}
+
+@media (max-width: 45em) {
+    .content-block__tabs .content-block__tab,
+    .content-block__tabs label {
+        order: initial;
+    }
+    .content-block__tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+    }
+}
+
+input {
+    background: inherit;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 5px;
+    line-height: 1.25rem;
+    width: 10vw;
+}
+input:hover {
+     border: 1px solid #333;
+     outline: none;
+ }
+.content-block__quiz-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgb(100 100 100 / 10%);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.content-block__quiz-header {
+    padding: 4rem;
+}
+
+h2 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+ul li label {
+    cursor: pointer;
+}
+
+
+.content-block__quiz-button {
+    background-color: #8e44ad;
+    border: none;
+    color: #fff;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    font-family: inherit;
+    padding: 1.3em;
+    margin: 0;
+}
+
+.content-block__quiz-button:hover {
+    background-color: #732d91;
+}
+
+.content-block__quiz-button:focus {
+    outline: none;
+    background-color: #5e3370;
+}
+
+.content-block__time-btn {
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 100vh;
+    background-image: linear-gradient(to right, #8e44ad, #c690dd);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    margin: 5% auto;
+    cursor: pointer;
+}
+
+.content-block__time-wrapper {
+     position: fixed;
+     top: 0;
+     left: 0;
+     background-color: rgba(0, 0, 0, 0.2);
+     width: 100%;
+     height: 100%;
+     display: none;
+}
+
+.content-block__time-content {
+     box-sizing: border-box;
+     background-color: #000;
+     padding: 1rem;
+     text-align: center;
+     margin: 5% auto;
+     width: 100%;
+     max-width: 25rem;
+     position: relative;
+     color: #8e44ad;
+     border-radius: 8px;
+}
+
+btn {
+     padding: 0.5rem 1rem;
+     margin: 0 auto;
+}
+
+.content-block__time-date {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 320px) {
+    .content-block__time-date {
+        font-size: 1rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    .content-block__time-date {
+        font-size: 1.6rem;
+    }
+}
+.display-time {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    border: 2px solid #8e44ad;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: ease-in-out 0.1s;
+    transition-property: background, box-shadow, color;
+}
+
+@media screen and (min-width: 320px) {
+    .display-time {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .display-time {
+        font-size: 5rem;
+    }
+}
+
+.display-time:hover {
+    background: #8e44ad;
+    box-shadow: 0 0 30px#8e44ad;
+    color: #272727;
+    cursor: pointer;
+}
+.content-block__button:hover,
+.content-block__button:focus {
+    box-shadow: inset 0 -3.25em 0 0 #8e44ad;
+}
+button {
+    color: #6c6c6c;
+    transition: 0.25s;
+}
+button:hover,
+button:focus {
+     border-color: #fff;
+     color: #fff;
+ }
+button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 0.5vw 2vw;
+}
