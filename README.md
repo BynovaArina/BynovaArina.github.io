@@ -2,6 +2,8 @@
 ```
 Задание 4
 Разработка формы регистрации
+https://bynovaarina.github.io/Summer_practice/practice_task/task_four/task_four.html
+
 ```
 https://bynovaarina.github.io/Summer_practice/practice_task/task_four/task_four.html
 
